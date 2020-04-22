@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds gnu gcc 8.3.0 to your environmental variables"
+}
+
+module-whatis "adds gnu gcc 8.3.0 to your environmental variables"
+
+set               root                 /apps/chpc/astro/gcc/8.3.0
+
+prepend-path      PATH                 ${root}/bin
+prepend-path      LD_LIBRARY_PATH      ${root}/lib
+prepend-path      LIBRARY_PATH         ${root}/lib
+prepend-path      LD_RUN_PATH          ${root}/lib
+prepend-path      LD_LIBRARY_PATH      ${root}/lib64
+prepend-path      LIBRARY_PATH         ${root}/lib64
+prepend-path      LD_RUN_PATH          ${root}/lib64
+prepend-path      CPATH                ${root}/include
+prepend-path      INCLUDE              ${root}/include
+prepend-path      MANPATH              ${root}/share/man
+prepend-path      PKG_CONFIG_PATH      ${root}/lib/pkgconfig
+prepend-path      PKG_CONFIG_PATH      ${root}/share/pkgconfig
+prepend-path      PKG_CONFIG_PATH      ${root}/lib64/pkgconfig
+
+setenv            CC                   gcc
+setenv            CXX                  g++
+setenv            MPICC                mpicc
+setenv            MPICXX               mpicxx
