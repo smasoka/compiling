@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds bison 3.4 to your environmental variables"
+}
+
+module-whatis "adds bison 3.4 to your environmental variables"
+
+module            add                  chpc/astro/gcc/8.3.0
+
+set               root                 /apps/chpc/astro/bison/3.4
+
+prepend-path      PATH                 ${root}/bin
+prepend-path      LD_LIBRARY_PATH      ${root}/lib
+prepend-path      LIBRARY_PATH         ${root}/lib
+prepend-path      MANPATH              ${root}/share/man
