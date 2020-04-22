@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds atlas 3.10.3 to your environmental variables"
+}
+
+module-whatis "adds atlas 3.10.3 to your environmental variables"
+
+module            add                  chpc/astro/gcc/8.3.0
+
+set               root                 /apps/chpc/astro/atlas/3.10.3
+
+prepend-path      LD_LIBRARY_PATH      ${root}/lib
+prepend-path      LIBRARY_PATH         ${root}/lib
+prepend-path      CPATH                ${root}/include
+prepend-path      INCLUDE              ${root}/include

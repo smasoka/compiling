@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds fftw 3.3.8 to your environmental variables"
+}
+
+module-whatis "adds fftw 3.3.8 to your environmental variables"
+
+module            add                  chpc/astro/gcc/8.3.0
+
+set               root                 /apps/chpc/astro/fftw/3.3.8
+
+prepend-path      PATH                 ${root}/bin
+prepend-path      LD_LIBRARY_PATH      ${root}/lib
+prepend-path      LIBRARY_PATH         ${root}/lib
+prepend-path      CPATH                ${root}/include
+prepend-path      INCLUDE              ${root}/include
+prepend-path      MANPATH              ${root}/share/man
+prepend-path      PKG_CONFIG_PATH      ${root}/lib/pkgconfig
