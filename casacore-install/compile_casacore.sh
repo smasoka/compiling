@@ -21,6 +21,8 @@ module load chpc/astro/hdf5/1.10.5
 module load chpc/astro/atlas/3.10.3
 module load chpc/astro/boost/1.71.0
 
+export Boost_DIR=/apps/chpc/astro/boost/1.71.0/lib/cmake
+
 VERSION=3.2.1
 SOURCE_DIR=/apps/chpc/astro/casacore-3.2.0/source_dir/casacore-${VERSION}
 INSTALL_PREFIX=/apps/chpc/astro/casacore/${VERSION}
@@ -36,6 +38,7 @@ FFTW3_INCLUDE_DIR=/apps/chpc/astro/fftw/3.3.8/include
 
 HDF5_DIR=/apps/chpc/astro/hdf5/1.10.5
 HDF5_INCLUDE_DIR=/apps/chpc/astro/hdf5/1.10.5/include
+HDF5_LIBRARY=/apps/chpc/astro/hdf5/1.10.5/lib/libhdf5.so
 
 CFITSIO_DIR=/apps/chpc/astro/cfitsio/3.47
 CFITSIO_INCLUDE_DIR=/apps/chpc/astro/cfitsio/3.47/include
@@ -60,6 +63,7 @@ OPTIONS="${OPTIONS} -DFFTW3_INCLUDE_DIR=${FFTW3_INCLUDE_DIR}"
 OPTIONS="${OPTIONS} -DUSE_HDF5=ON"
 OPTIONS="${OPTIONS} -DHDF5_ROOT_DIR={$HDF5_DIR}"
 OPTIONS="${OPTIONS} -DHDF5_INCLUDE_DIR={$HDF5_INCLUDE_DIR}"
+OPTIONS="${OPTIONS} -DHDF5_LIBRARY={$HDF5_LIBRARY}"
 OPTIONS="${OPTIONS} -DBUILD_PYTHON3=ON"
 OPTIONS="${OPTIONS} -DPYTHON3_LIBRARY=${PYTHON3_LIBRARY}"
 OPTIONS="${OPTIONS} -DPYTHON3_EXECUTABLE=${PYTHON3_EXECUTABLE} "
