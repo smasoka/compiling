@@ -25,6 +25,6 @@ echo "Source Directory: $SOURCE_DIR"
 echo "Install Prefix: $INSTALL_PREFIX"
 
 cd $SOURCE_DIR
-./configure --prefix=${INSTALL_PREFIX} --with-cfitsiolib=${cfitsiolib} --with-cfitsioinc=${cfitsioinc}
-make 
-make install
+./configure --prefix=${INSTALL_PREFIX} --with-cfitsiolib=${cfitsiolib} --with-cfitsioinc=${cfitsioinc} --without-pgplot
+gmake 
+gmake install
