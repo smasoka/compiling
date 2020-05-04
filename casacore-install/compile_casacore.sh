@@ -19,9 +19,12 @@ module load chpc/astro/fftw/3.3.8
 module load chpc/astro/openmpi/4.0.3
 module load chpc/astro/hdf5/1.10.5
 module load chpc/astro/atlas/3.10.3
-module load chpc/astro/boost/1.71.0
+module load chpc/astro/boost/1.67.0
+module load chpc/astro/anaconda/3
 
-export Boost_DIR=/apps/chpc/astro/boost/1.71.0/lib/cmake
+export BOOST_ROOT=/apps/chpc/astro/boost/1.67.0
+export BOOST_INCLUDEDIR=/apps/chpc/astro/boost/1.67.0/include
+export BOOST_LIBRARYDIR=/apps/chpc/astro/boost/1.67.0/lib
 
 VERSION=3.2.1
 SOURCE_DIR=/apps/chpc/astro/casacore-3.2.0/source_dir/casacore-${VERSION}
@@ -57,6 +60,8 @@ echo "Install Prefix: $INSTALL_PREFIX"
 
 OPTIONS=""
 OPTIONS="${OPTIONS} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX}"
+OPTIONS="${OPTIONS} -DBoost_NO_SYSTEM_PATHS=ON"
+#OPTIONS="${OPTIONS} -DBoost_DEBUG=ON"
 OPTIONS="${OPTIONS} -DUSE_FFTW3=ON"
 OPTIONS="${OPTIONS} -DFFTW3_ROOT_DIR=${FFTW3_DIR}"
 OPTIONS="${OPTIONS} -DFFTW3_INCLUDE_DIR=${FFTW3_INCLUDE_DIR}"
@@ -83,5 +88,5 @@ OPTIONS="${OPTIONS} -DDATA_DIR=${DATA}"
 cd $SOURCE_DIR
 rm -rf build && mkdir build && cd build
 cmake ${OPTIONS} ..
-make -j 8
+make -j 4
 make install 

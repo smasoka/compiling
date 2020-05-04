@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds boost 1.67.0 to your environmental variables"
+}
+
+module-whatis "adds boost 1.67.0 to your environmental variables"
+
+module            add                  chpc/astro/gcc/8.3.0
+module            add                  chpc/astro/anaconda/3
+
+set               root                 /apps/chpc/astro/boost/1.67.0
+
+prepend-path      LD_LIBRARY_PATH      ${root}/lib
+prepend-path      LIBRARY_PATH         ${root}/lib
+prepend-path      CPATH                ${root}/include
+prepend-path      INCLUDE              ${root}/include

@@ -21,6 +21,6 @@ echo "Source Directory: $SOURCE_DIR"
 echo "Install Prefix: $INSTALL_PREFIX"
 
 cd $SOURCE_DIR
-./configure --prefix=${INSTALL_PREFIX}
+./configure --prefix=${INSTALL_PREFIX} --enable-sse2 --enalbe-ssse3
 make 
 make install
