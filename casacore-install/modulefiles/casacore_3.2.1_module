@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds CASACORE 3.2.1 your environmental variables"
+}
+
+module-whatis "adds CASACORE 3.2.1 to your environmental variables"
+
+module            add                  chpc/astro/gcc/8.3.0
+module		  add                  chpc/astro/cmake/3.15.6
+module            add                  chpc/astro/bison/3.4
+module            add                  chpc/astro/cfitsio/3.47
+module            add                  chpc/astro/wcslib/6.4
+module            add                  chpc/astro/fftw/3.3.8
+module            add                  chpc/astro/openmpi/4.0.3
+module            add                  chpc/astro/hdf5/1.10.5
+module            add                  chpc/astro/atlas/3.10.3
+module            add                  chpc/astro/boost/1.67.0
+module            add                  chpc/astro/anaconda/3
+
+
+set               root                 /apps/chpc/astro/casacore/3.2.1
+
+prepend-path      PATH                 ${root}/bin
+prepend-path      LD_LIBRARY_PATH      ${root}/lib
+prepend-path      LIBRARY_PATH         ${root}/lib
+prepend-path      CPATH                ${root}/include
+prepend-path      INCLUDE              ${root}/include
