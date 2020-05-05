@@ -4,7 +4,7 @@
 #PBS -N boost_compiling
 #PBS -q serial
 #PBS -l select=1:ncpus=24
-#PBS -l walltime=01:00:00
+#PBS -l walltime=02:00:00
 #PBS -o /mnt/lustre/users/smasoka/compiling/boost_compiling.out
 #PBS -e /mnt/lustre/users/smasoka/compiling/boost_compiling.err
 #PBS -m abe
@@ -22,5 +22,5 @@ echo "Source Directory: $SOURCE_DIR"
 echo "Install Prefix: $INSTALL_PREFIX"
 
 cd $SOURCE_DIR
-./bootstrap.sh --prefix=${INSTALL_PREFIX} --with-python=/apps/chpc/astro/anaconda3/bin/python --with-python-root=/apps/chpc/astro/anaconda3 --with-python-version=3.7 --with-toolset=gcc
+./bootstrap.sh --prefix=${INSTALL_PREFIX} --with-python=/apps/chpc/astro/anaconda3/bin/python --with-python-root=/apps/chpc/astro/anaconda3 --with-python-version=3.7 --with-toolset=gcc --with-libraries=all
 ./b2 toolset=gcc install
