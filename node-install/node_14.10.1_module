@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds node 14.10.1 to your environmental variables"
+}
+
+module-whatis "adds node 14.10.1 to your environmental variables"
+
+module            add                  chpc/astro/gcc/8.3.0
+module		  add		       chpc/astro/anaconda/3
+
+set               root                 /apps/chpc/astro/node/14.10.1
+
+prepend-path      PATH                 ${root}/bin
+prepend-path      LD_LIBRARY_PATH      ${root}/lib
+prepend-path      LIBRARY_PATH         ${root}/lib
+prepend-path      CPATH                ${root}/include
+prepend-path      INCLUDE              ${root}/include
+prepend-path      MANPATH              ${root}/share/man
